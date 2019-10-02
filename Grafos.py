@@ -1,3 +1,10 @@
+def Printar(matriz):
+    for linha in range(len(matriz)):
+        for coluna in range(len(matriz[linha])):
+            print("%2d" % matriz[linha][coluna], end=" ")
+        print()
+    print()
+
 def grafoSimples(matriz):
     l = 0
     am = 0
@@ -9,6 +16,7 @@ def grafoSimples(matriz):
             if (linha != coluna and matriz[linha][coluna] > 1):
                 print("Há aresta multiplas nos vertices %s %s\n" % ((linha + 1), (coluna + 1)))
                 am = 1
+
     if am == 0 and l ==0:
         print("É um grafos simples, pois não possui arestas multiplas e laços\n")
     else:
@@ -51,25 +59,70 @@ def Regular(S):
     else:
         print("O grafo não é regular, pois todos os vertices não têm o mesmo grau\n")
 
-def Printar(matriz):
-    for linha in range(len(matriz)): 
-        for coluna in range(len(matriz[linha])): 
-            print("%2d" % matriz[linha][coluna], end=" ")
-        print()
-    print()
+def bipartidoCompleto(x, y, matriz):
+    boolBpCompleto = True
+
+    for i in range(len(x)):
+        cont = 0
+        for j in range(len(y)):
+            k = x[i]
+            z = y[j]
+            if matriz[k][z] > 0:
+                cont+=1
+        if cont < len(y):
+            boolBpCompleto = False
+            break
+
+    if boolBpCompleto:
+        print("\nO grafo é bipartido completo, pois cada vértice com bipartição em x se conecta a todos os vértices com bipartição em y.")
+    else:
+        print("\nO grafo não é bipartido completo, pois nem todo vértice com bipartição em x se conecta a todos os vértices com bipartição em y.")
 
 def bipartido(matriz):
-    m=0
+    boolBipartido = True
+    x =[]
+    y =[]
 
-def menuP():
-    # menu de opções para o usuário
-    print("1 - Exibir a matriz \n"
-          "2 - Grafo Simples \n"
-          "3 - Sequência de graus do grafo \n"
-          "4 - Quantidade de Arestas \n"
-          "5 - Grafo Completo? \n"
-          "6 - Grafo Regular \n"
-          "0 - Sair\n")
+    def findAdjacentes(y):
+        if len(y) > 1:
+            for i in range(len(y)):
+                for j in range(len(y)):
+                    z = y[i]
+                    k = y[j]
+                    if matriz[z][k] != 0:
+                        return True
+        return False
+
+    for i in range(len(matriz)):
+        if i not in y:
+            x.append(i)
+            for j in range(len(matriz)):
+                if j > i:
+                    if matriz[i][j] > 0:
+                        if j not in y:
+                            y.append(j)
+        if findAdjacentes(y):
+            boolBipartido = False
+
+    if boolBipartido:
+        print("\nO grafo é bipartido, e possui bipartições em x = {", end="")
+        for i in range(len(x)):
+            if i < len(x)-1:
+                print("v{}".format(x[i]+1), end=", ")
+            else:
+                print("v{}".format(x[i]+1), end="} e y = {")
+
+        for j in range(len(y)):
+            if j < len(y)-1:
+                print("v{}".format(y[j] + 1), end=", ")
+            else:
+                print("v{}".format(y[j] + 1), end = "}")
+
+        bipartidoCompleto(x, y, matriz)
+
+
+    else:
+        print("\nO grafo não é bipartido, pois possui vértices que se conectam a n vértices adjacentes.")
 
 def main():
     arquivo = open("garfos.txt","r")
@@ -81,46 +134,15 @@ def main():
         for coluna in range(len(matriz[linha])):
              matriz[linha][coluna] = int(matriz[linha][coluna])
 
-    menuP()
-    menu = int(input("Digite o q deseja fazer: "))
-    # enquanto a variavel menu não for "0" ocorrerá a solicitação e a chamada de cada função desejada pelo usuário
-    while True:
-        if menu == 0:
-            break
-        elif menu == 1:
-            Printar(matriz)
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-        elif menu == 2:
-            grafoSimples(matriz)
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-        elif menu == 3:
-            S = Sequencia(matriz)
-            print("Sequência de graus do grafo: %s\n" % S)
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-        elif menu == 4:
-            S = Sequencia(matriz)
-            Arestas(S)
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-        elif menu == 5:
-            S = Sequencia(matriz)
-            Completo(S)
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-        elif menu == 6:
-            S = Sequencia(matriz)
-            Regular(S)
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-        else:
-            print("O comando digitado não é valido\n")
-            menuP()
-            menu = int(input("Digite o q deseja fazer: "))
-    bipartido(matriz)
 
+    Printar(matriz)
+    grafoSimples(matriz)
+    S = Sequencia(matriz)
+    print("Sequência de graus do grafo em ordem não crescente: %s\n" % S)
+    Arestas(S)
+    Completo(S)
+    Regular(S)
+    bipartido(matriz)
 main()
 
 
