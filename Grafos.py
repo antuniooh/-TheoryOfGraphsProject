@@ -29,7 +29,7 @@ def Sequencia(matriz):
         for coluna in range(len(matriz[linha])):
             grau+=matriz[linha][coluna]
         sequencia.append(grau)
-        grau=0
+        grau=0    
     sequencia.sort(reverse=True)
     return sequencia
 
@@ -37,7 +37,6 @@ def Arestas(S):
     T=0
     for coluna in range(len(S)):
         T += S[coluna]
-    #a quantidade de arestas é a soma dos graus dos vertices sobre dois
     print("A quantidade de arestas do grafo é : %d\n" %(T/2))
 
 def Completo(S):
@@ -59,70 +58,72 @@ def Regular(S):
     else:
         print("O grafo não é regular, pois todos os vertices não têm o mesmo grau\n")
 
-def bipartidoCompleto(x, y, matriz):
-    boolBpCompleto = True
-
-    for i in range(len(x)):
-        cont = 0
-        for j in range(len(y)):
-            k = x[i]
-            z = y[j]
-            if matriz[k][z] > 0:
-                cont+=1
-        if cont < len(y):
-            boolBpCompleto = False
-            break
-
-    if boolBpCompleto:
-        print("\nO grafo é bipartido completo, pois cada vértice com bipartição em x se conecta a todos os vértices com bipartição em y.")
-    else:
-        print("\nO grafo não é bipartido completo, pois nem todo vértice com bipartição em x se conecta a todos os vértices com bipartição em y.")
 
 def bipartido(matriz):
-    boolBipartido = True
-    x =[]
-    y =[]
+    Bipartido = True
+    u =[]
+    v =[]
 
-    def findAdjacentes(y):
-        if len(y) > 1:
-            for i in range(len(y)):
-                for j in range(len(y)):
-                    z = y[i]
-                    k = y[j]
+    def adjacentes(y):
+        if len(v) > 1:
+            for i in range(len(v)):
+                for j in range(len(v)):
+                    z = v[i]
+                    k = v[j]
                     if matriz[z][k] != 0:
                         return True
         return False
 
     for i in range(len(matriz)):
-        if i not in y:
-            x.append(i)
+        if i not in v:
+            u.append(i)
             for j in range(len(matriz)):
                 if j > i:
                     if matriz[i][j] > 0:
-                        if j not in y:
-                            y.append(j)
-        if findAdjacentes(y):
-            boolBipartido = False
+                        if j not in v:
+                            v.append(j)
+        if adjacentes(v):
+            Bipartido = False
 
-    if boolBipartido:
-        print("\nO grafo é bipartido, e possui bipartições em x = {", end="")
-        for i in range(len(x)):
-            if i < len(x)-1:
-                print("v{}".format(x[i]+1), end=", ")
+    if Bipartido:
+        print("O grafo é bipartido, e possui bipartições em u = {", end="")
+        for i in range(len(u)):
+            if i < len(u)-1:
+                print("V{}".format(u[i]+1), end=", ")
             else:
-                print("v{}".format(x[i]+1), end="} e y = {")
+                print("V{}".format(u[i]+1), end="} e V = {")
 
-        for j in range(len(y)):
-            if j < len(y)-1:
-                print("v{}".format(y[j] + 1), end=", ")
+        for j in range(len(v)):
+            if j < len(v)-1:
+                print("V{}".format(v[j] + 1), end=", ")
             else:
-                print("v{}".format(y[j] + 1), end = "}")
+                print("V{}".format(v[j] + 1), end = "}")
+        print("\n")
 
-        bipartidoCompleto(x, y, matriz)
+        def bipartidoCompleto(u, v, matriz):
+            BipCompleto = True
+
+            for i in range(len(u)):
+                cont = 0
+                for j in range(len(v)):
+                    k = u[i]
+                    z = v[j]
+                    if matriz[k][z] > 0:
+                        cont+=1
+                if cont < len(v):
+                    BipCompleto = False
+                    break
+
+            if BipCompleto:
+                print("O grafo é bipartido completo, pois cada vértice com bipartição em u se conecta a todos os vértices com bipartição em v\n")
+            else:
+                print("O grafo não é bipartido completo, pois não são todos os vértices com bipartição em u que se conectam a todos os vértices com bipartição em v\n")
+
+        bipartidoCompleto(u, v, matriz)
 
 
     else:
-        print("\nO grafo não é bipartido, pois possui vértices que se conectam a n vértices adjacentes.")
+        print("O grafo não é bipartido, pois possui vértices que se conectam a vértices adjacentes\n")
 
 def main():
     arquivo = open("garfos.txt","r")
