@@ -4,7 +4,7 @@ Projeto semestral da matéria de Teoria dos Grafos, ministrada no Centro Univers
 
 ## Funcionalidade
 
-O programa lê o arquivo de texto local "grafos.txt" que contêm uma matriz de adjacência do grafo.
+O programa lê o arquivo de texto selecionado pelo usuário que contêm uma matriz de adjacência do grafo.
 
 **1 - Grafo simples** - Exibe se o grafo referente a matriz de adjacencia do arquivo é simples. Lembrando que um grafo simples é aquele que não possui arestas multiplas e nem laços. 
 
@@ -25,11 +25,11 @@ O programa lê o arquivo de texto local "grafos.txt" que contêm uma matriz de a
 Tanto no Windows quanto no Linux a execução é feita a partir da execução da linha a seguir no terminal, ou utilizando uma IDE de sua preferência. 
 
 ```bash
-python main.py
+python mainWindow.py
 ```
 
 Entretanto, utilizando apenas a linha acima é possivel que o compilador de sua máquina utilize o python em sua versão 2.7. Para resolver isso é mais vantajoso utilizar:
 
 ```bash
-python3 main.py
+python3 mainWindow.py
 ```

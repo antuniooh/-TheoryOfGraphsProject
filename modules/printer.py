@@ -1,6 +1,8 @@
 def Printar(matriz):
+    result = "\n"
     for linha in range(len(matriz)):
         for coluna in range(len(matriz[linha])):
-            print("%2d" % matriz[linha][coluna], end=" ")
-        print()
-    print()
+            result+=("%2d" % matriz[linha][coluna] + " ")
+        result+=("\n")
+    result+=("\n")
+    return result

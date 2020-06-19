@@ -1,4 +1,5 @@
 def bipartido(matriz):
+    result = ""
     Bipartido = True
     u =[]
     v =[]
@@ -25,21 +26,22 @@ def bipartido(matriz):
             Bipartido = False
 
     if Bipartido:
-        print("O grafo é bipartido, e possui bipartições em u = {", end="")
+        result+=("O grafo é bipartido, e possui bipartições em u = {")
         for i in range(len(u)):
             if i < len(u)-1:
-                print("V{}".format(u[i]+1), end=", ")
+                result+=("V{}".format(u[i]+1) + ", ")
             else:
-                print("V{}".format(u[i]+1), end="} e V = {")
+                result+=("V{}".format(u[i]+1)+ "} e V = {")
 
         for j in range(len(v)):
             if j < len(v)-1:
-                print("V{}".format(v[j] + 1), end=", ")
+                result+=("V{}".format(v[j] + 1) +", ")
             else:
-                print("V{}".format(v[j] + 1), end = "}")
-        print("\n")
+                result+=("V{}".format(v[j] + 1) + "}")
+        result+=("\n")
 
         def bipartidoCompleto(u, v, matriz):
+            resultado = ""
             BipCompleto = True
 
             for i in range(len(u)):
@@ -54,12 +56,13 @@ def bipartido(matriz):
                     break
 
             if BipCompleto:
-                print("O grafo é bipartido completo, pois cada vértice com bipartição em u se conecta a todos os vértices com bipartição em v\n")
+                resultado+=("O grafo é bipartido completo, pois cada vértice com bipartição em u se conecta a todos os vértices com bipartição em v\n")
             else:
-                print("O grafo não é bipartido completo, pois não são todos os vértices com bipartição em u que se conectam a todos os vértices com bipartição em v\n")
+                resultado+=("O grafo não é bipartido completo, pois não são todos os vértices com bipartição em u que se conectam a todos os vértices com bipartição em v\n")
+            return resultado
 
-        bipartidoCompleto(u, v, matriz)
-
+        result+= bipartidoCompleto(u, v, matriz)
+        return result
 
     else:
-        print("O grafo não é bipartido, pois possui vértices que se conectam a vértices adjacentes\n")
+        return("O grafo não é bipartido, pois possui vértices que se conectam a vértices adjacentes\n")
