@@ -33,3 +33,11 @@ Entretanto, utilizando apenas a linha acima é possivel que o compilador de sua 
 ```bash
 python3 mainWindow.py
 ```
+
+## Integrantes
+
+O projeto em questão foi desenvolvido por 2 pessoas.
+
+Antonio Muniz - https://www.linkedin.com/in/antuniooh/
+
+Henrique Vital Carvalho - https://www.linkedin.com/in/henrique-vital-carvalho-45a82b192/
