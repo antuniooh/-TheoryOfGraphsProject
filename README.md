@@ -1,43 +1,80 @@
-# Calculadora Grafos 
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/antuniooh/graphs-calculator">
 
-Projeto semestral da matéria de Teoria dos Grafos, ministrada no Centro Universitário FEI. Consiste na leitura de um arquivo que contem uma matriz, sendo que essa representa um grafo. A partir de sua leitura exibe-se determinadas informações sobre o grafo.
+  <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/antuniooh/graphs-calculator">
+  
+  <a href="https://github.com/antuniooh/graphs-calculator/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/antuniooh/graphs-calculator">
+  </a>
+  
+   <img alt="GitHub" src="https://img.shields.io/github/license/antuniooh/graphs-calculator">
+</p>
 
-## Funcionalidade
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/antuniooh/graphs-calculator">
+    <img src="https://cdn0.iconfinder.com/data/icons/thin-analytics/57/thin-360_hierarchy_diagram_structure-512.png" alt="Logo" width="550">
+  </a>
+</p>
 
-O programa lê o arquivo de texto selecionado pelo usuário que contêm uma matriz de adjacência do grafo.
+<p align="center">
+  <img alt="Math" src="https://img.shields.io/badge/Math-red?style=for-the-badge&logo=math&logoColor=white"/>
+  <img alt="Python" src="https://img.shields.io/badge/Python-darkblue?style=for-the-badge&logo=python&logoColor=white"/>
+    <img alt="Graph" src="https://img.shields.io/badge/Graph-darkrgreen?style=for-the-badge&logo=graph&logoColor=white"/>
+</p>
 
-**1 - Grafo simples** - Exibe se o grafo referente a matriz de adjacencia do arquivo é simples. Lembrando que um grafo simples é aquele que não possui arestas multiplas e nem laços. 
 
-**2 - Sequência de Graus** - Exibe a sequência de graus do grafo em ordem não crescente. Lembrando que um grau de um vértice é o número de arestas que incidem sobre ele.
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#-about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#-how-to-run">How To Run</a>
+    </li>
+  </ol>
+</details>
 
-**3 - Quantidade de Arestas** - Exibe a quantidade de arestas do grafo.
 
-**4 - Grafo Regular** - Exibe se o grafo é regular ou não. Sendo que um grafo é dito ser regular quando todos os seus vértices têm o mesmo grau
+<!-- ABOUT THE PROJECT -->
+## 💻 About The Project
+The project consists of reading a file that contains a matrix, which represents a graph. From its reading, certain information about the graph is displayed.
 
-**5 - Grafo Bipartido** - Exibe se o grafo em questão é bipartido e caso seja exibe também suas bipartições de vértices. Sendo que um grafo é dito ser bipartido quando seu conjunto de vértices V puder ser particionado em dois subconjuntos X e Y, tais que toda aresta de G une um vértice de X a outro de Y.
+![app](https://github.com/antuniooh/graphs-calculator/blob/master/images/example.png)
 
-**6 - Grafo Bipartido Completo** - Informa se o grafo é bipartido completo. Lembrando que um grafo bipartido completo ocorre quando é possivel dividir em duas partições e com todo vértice de uma sendo adjacente a todo vértice da outra partição.
+The program reads the user-selected text file that contains an adjacency matrix of the graph.
 
-![image](images/example.png)
+**1 - Simple graph** - Displays if the graph referring to the adjacency matrix of the file is simple. Remembering that a simple graph is one that does not have multiple edges or loops.
 
-## Execução
+**2 - Degree Sequence** - Displays the graph's sequence of degrees in non-ascending order. Remembering that a degree of a vertex is the number of edges that fall on it.
 
-Tanto no Windows quanto no Linux a execução é feita a partir da execução da linha a seguir no terminal, ou utilizando uma IDE de sua preferência. 
+**3 - Number of Edges** - Displays the number of edges in the graph.
+
+**4 - Regular Graph** - Displays whether the graph is regular or not. Since a graph is said to be regular when all its vertices have the same degree
+
+**5 - Bipartite Graph** - Displays if the graph in question is bipartite and if so, it also displays its vertex bipartitions. A graph is said to be bipartite when its set of vertices V can be partitioned into two subsets X and Y, such that every edge of G joins a vertex of X to another of Y.
+
+**6 - Complete Bipartite Graph** - Informs if the graph is complete bipartite. Remembering that a complete bipartite graph occurs when it is possible to divide into two partitions and with every vertex of one being adjacent to every vertex of the other partition.
+
+<!-- HOW TO RUN -->
+## 🚀 How To Run
 
 ```bash
-python mainWindow.py
+
+# Clone the repository
+$ git clone https://github.com/antuniooh/graphs-calculator.git
+
+# Access the project folder in your terminal / cmd
+$ cd graphs-calculator
+
+# In both Windows and Linux, the execution is done by executing the following line in the terminal, or using an IDE of your choice.
+$ python3 mainWindow.py
+
 ```
+## 🤖 Authors
 
-Entretanto, utilizando apenas a linha acima é possivel que o compilador de sua máquina utilize o python em sua versão 2.7. Para resolver isso é mais vantajoso utilizar:
-
-```bash
-python3 mainWindow.py
-```
-
-## Integrantes
-
-O projeto em questão foi desenvolvido por 2 pessoas.
-
-Antonio Muniz - https://www.linkedin.com/in/antuniooh/
-
-Henrique Vital Carvalho - https://www.linkedin.com/in/henrique-vital-carvalho-45a82b192/
+[Antonio Gustavo](https://github.com/antuniooh)           |  [Henrique Vital](https://github.com/henriquevital00)           
+<img src="https://avatars.githubusercontent.com/u/51217271?v=4" alt="drawing" width="150"/>  |  <img src="https://avatars.githubusercontent.com/u/48650626?v=4" alt="drawing" width="150"/>
